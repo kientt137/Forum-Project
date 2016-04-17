@@ -26,12 +26,13 @@
             <%else%>
                 <b><%= @information.address %></b>
             <% end %></li>
-          <li>Phone number: <% if @information.phone.nil? %>
+          <li>Phone number: <% if @information.phone == "0000000000" %>
                 <i>Not update</i>
             <%else%>
                 <b><%= @information.phone %></b>
             <% end %></li>
-          <li>Introduce: <% if @information.introduce.nil? %>
+          <li>Email: <b><%= @user.email%></b></li>
+          <li>Introduce: <% if @information.introduce.nil? || @information.introduce.empty?%>
                 <i>Not update</i>
             <%else%>
                 <b><%= @information.introduce %></b>

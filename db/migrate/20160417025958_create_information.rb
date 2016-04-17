@@ -3,7 +3,7 @@ class CreateInformation < ActiveRecord::Migration
     create_table :information do |t|
       t.string :sex
       t.date :birth
-      t.integer :phone
+      t.string :phone
       t.string :address
       t.text :introduce
       t.references :user, index: true, foreign_key: true

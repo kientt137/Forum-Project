@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20160417025958) do
   create_table "information", force: :cascade do |t|
     t.string   "sex"
     t.date     "birth"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "address"
     t.text     "introduce"
     t.integer  "user_id"

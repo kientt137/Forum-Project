@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      @user.information = Information.new
+      @user.information = Information.create(phone: "0000000000")
       log_in @user
       flash[:success] = "Sign up success! Welcome to forum"
       redirect_to @user
