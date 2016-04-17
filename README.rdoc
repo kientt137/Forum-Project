@@ -1,4 +1,5 @@
 == README
 
-This is a simple Forum using Rails framework, followed by The Ruby On Rails Tutorial 3rd Edition of Micheal Harlt
+This is a simple Forum using Rails framework, followed by The Ruby On Rails Tutorial 3rd Edition of Micheal Harlt.
+
 This is a project of Noname Team for Software Engineering Subject
