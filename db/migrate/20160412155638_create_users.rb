@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :email
 
-      t.timestamps null: false
+      t.timestamps null: false   #create auto 2 column called create_at and update_at
     end
   end
 end
