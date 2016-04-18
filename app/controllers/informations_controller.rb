@@ -1,6 +1,6 @@
 class InformationsController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update]  #need log in to access this site
+  before_action :correct_user,   only: [:edit, :update]   #Can not change the data of other user
 
   def edit
     @user = current_user
@@ -24,6 +24,7 @@ class InformationsController < ApplicationController
     params.require(:information).permit(:sex, :birth, :address, :phone, :introduce, :avatar)
   end
 
+  #Check log in status
   def logged_in_user
     unless logged_in?
       flash[:danger] = "Please log in."
@@ -31,6 +32,7 @@ class InformationsController < ApplicationController
     end
   end
 
+  #Check correct_user
   def correct_user
     @user = User.find(params[:id])
     unless current_user?(@user)
