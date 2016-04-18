@@ -21,7 +21,7 @@ class InformationsController < ApplicationController
 
   private
   def info_params
-    params.require(:information).permit(:sex, :birth, :address, :phone, :introduce)
+    params.require(:information).permit(:sex, :birth, :address, :phone, :introduce, :avatar)
   end
 
   def logged_in_user

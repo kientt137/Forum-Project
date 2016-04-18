@@ -3,7 +3,7 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= gravatar_for @user %>
+        <div class="round-image-medium"><%= image_tag(@info.avatar.url(:medium)) %></div>
       </h1>
     </section>
   </aside>
@@ -11,31 +11,31 @@
         <h3>Information</h3>
         <ol class="microposts">
           <li>Name: <b><%= @user.name %></b></li>
-          <li>Sex: <% if @information.sex.nil? %>
+          <li>Sex: <% if @info.sex.nil? %>
               <i>Not update</i>
           <%else%>
-              <b><%= @information.sex %></b>
+              <b><%= @info.sex %></b>
           <% end %></li>
-          <li>Birthday: <% if @information.birth.nil? %>
+          <li>Birthday: <% if @info.birth.nil? %>
                 <i>Not update</i>
             <%else%>
-                <b><%= @information.birth %></b>
+                <b><%= @info.birth %></b>
             <% end %></li>
-          <li>Address: <% if @information.address.nil? %>
+          <li>Address: <% if @info.address.nil? %>
                 <i>Not update</i>
             <%else%>
-                <b><%= @information.address %></b>
+                <b><%= @info.address %></b>
             <% end %></li>
-          <li>Phone number: <% if @information.phone == "0000000000" %>
+          <li>Phone number: <% if @info.phone == "0000000000" %>
                 <i>Not update</i>
             <%else%>
-                <b><%= @information.phone %></b>
+                <b><%= @info.phone %></b>
             <% end %></li>
           <li>Email: <b><%= @user.email%></b></li>
-          <li>Introduce: <% if @information.introduce.nil? || @information.introduce.empty?%>
+          <li>Introduce: <% if @info.introduce.nil? || @info.introduce.empty?%>
                 <i>Not update</i>
             <%else%>
-                <b><%= @information.introduce %></b>
+                <b><%= @info.introduce %></b>
             <% end %></li>
         </ol>
   </div>
