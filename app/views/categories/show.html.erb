@@ -1,0 +1,25 @@
+<% provide(:title, @category.name) %>
+<div class="container"><br><br>
+  <table class = "table table-striped">
+    <tbody>
+    <tr>
+      <td><h2> Create new topic at <%= link_to "here", topics_new_path%></h2></td>
+    </tr>
+    <% @topic.each do |topic| %>
+        <% author = User.find_by_id(topic.user_id)%>
+    <tr>
+      <td>
+        <div class="round-image-50"><%= image_tag(author.information.avatar.url(:thumb)) %></div>
+
+      </td>
+      <td>
+        <b><%= link_to topic.title, topic%></b>
+      </td>
+      <td>
+        Posted by: <%= author.name%>
+      </td>
+    <% end %>
+        </tbody>
+
+        </table>
+</div>

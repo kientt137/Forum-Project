@@ -1,0 +1,12 @@
+<h1>
+  Create new Category
+</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= render 'shared/error_category_messages' %>
+<%= form_for (@category) do |f| %>
+  <%= f.label :name%>
+  <%= f.text_field :name%>
+  <%= f.submit "save", class: "btn btn-primary"%>
+<% end %>
+      </div></div>

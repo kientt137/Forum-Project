@@ -1,0 +1,13 @@
+<% provide(:title, @category.name) %>
+<div class="container">
+  <% @topic.each do |topic| %>
+      <!--<div class="row">-->
+      <div class="center jumbotron">
+        <div class="col-md-4"><b><%= link_to topic.title, topic %></b></div>
+        <div class="col-md-8">0 Comment</div>
+
+        <!--</div>-->
+        <br>
+      </div>
+  <% end %>
+</div>

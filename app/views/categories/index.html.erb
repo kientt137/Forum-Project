@@ -1,0 +1,10 @@
+<% provide(:title, "Homepage") %>
+<div class="container">
+<% @category.each do |category| %>
+    <!--<div class="row">-->
+    <div class="center jumbotron">
+      <div class="col-md-4"><b><%= link_to category.name, category%></b></div>
+      <div class="col-md-8"><%=  pluralize(category.topics.count, "topic") %></div>
+      </div>
+      <% end %>
+</div>

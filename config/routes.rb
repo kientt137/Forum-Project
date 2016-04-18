@@ -1,14 +1,24 @@
 Rails.application.routes.draw do
+  get 'topics/new'
+
+  get 'topics/show'
+
+  get 'topics/edit'
+
+  get 'categories/show'
+
   get 'informations/show'
 
   get 'sessions/new'
 
   get 'users/new'
 
-  root             'static_pages#home'
+
+  root             'categories#index'
   get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
+  get 'home2' => 'static_pages#home'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
@@ -16,6 +26,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :informations
+  resources :categories
+  resources :topics
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
