@@ -4,6 +4,8 @@ This is a simple Forum using Rails framework, followed by The Ruby On Rails Tuto
 
 This is a project of Noname Team for Software Engineering Subject
 
+View the demo version at https://forum-kientt137.c9users.io/
+
 *****************************************************************
 
 Install on C9.io
