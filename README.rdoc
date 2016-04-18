@@ -5,12 +5,13 @@ This is a simple Forum using Rails framework, followed by The Ruby On Rails Tuto
 This is a project of Noname Team for Software Engineering Subject
 
 *****************************************************************
+
 Install on C9.io
 1. git clone https://github.com/INT2208-3-Noname-Team/Forum-Project
 2. bundle install
 3. rake db:migrate
 4. Set up ImageMagick
     - run: sudo apt-get update
-    - run: sudo apt-got install imagemagick
+    - run: sudo apt-get install imagemagick
 5. Run server:
     rails server -b $IP -p $PORT
