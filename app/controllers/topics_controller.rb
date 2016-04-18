@@ -22,6 +22,10 @@ class TopicsController < ApplicationController
     end
   end
   def show
+    @topic = Topic.find(params[:id])
+    @user = User.find_by_id(@topic.user_id)
+    @info = @user.information
+    @category = Category.find_by_id(@topic.category_id)
   end
 
   def edit

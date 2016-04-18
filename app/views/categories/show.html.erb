@@ -1,25 +1,31 @@
 <% provide(:title, @category.name) %>
-<div class="container"><br><br>
-  <table class = "table table-striped">
-    <tbody>
-    <tr>
-      <td><h2> Create new topic at <%= link_to "here", topics_new_path%></h2></td>
-    </tr>
+<div class="container">
+  <div class="col-md-8">
+    <div class="breadcrumb">
+      <% if logged_in? %>
+          Create new topic at <%= link_to "here", new_topic_path%>
+      <% else %>
+          You need <%= link_to "Log in", login_path%> or <%= link_to "Sign up", signup_path%> to create a new topic!
+      <% end %>
+    </div>
+
+    <ol class = "breadcrumb">
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to @category.name, @category %></li>
+    </ol>
     <% @topic.each do |topic| %>
         <% author = User.find_by_id(topic.user_id)%>
-    <tr>
-      <td>
-        <div class="round-image-50"><%= image_tag(author.information.avatar.url(:thumb)) %></div>
-
-      </td>
-      <td>
-        <b><%= link_to topic.title, topic%></b>
-      </td>
-      <td>
-        Posted by: <%= author.name%>
-      </td>
+        <div class = "panel panel-default">
+          <div class = "panel-body">
+            <div class="col-md-2">
+              <div class="round-image-50"><%= image_tag(author.information.avatar.url(:thumb)) %></div>
+            </div>
+            <div class="col-md-8"><b><%= link_to topic.title, topic%></b></div>
+            <div class="col-md-2">Posted by: <%= link_to author.name, author%></div>
+          </div>
+        </div>
     <% end %>
-        </tbody>
 
-        </table>
+
+  </div>
 </div>

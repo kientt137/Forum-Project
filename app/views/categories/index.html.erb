@@ -1,10 +1,27 @@
 <% provide(:title, "Homepage") %>
 <div class="container">
-<% @category.each do |category| %>
-    <!--<div class="row">-->
-    <div class="center jumbotron">
-      <div class="col-md-4"><b><%= link_to category.name, category%></b></div>
-      <div class="col-md-8"><%=  pluralize(category.topics.count, "topic") %></div>
+  <div class="col-md-8">
+
+    <ol class = "breadcrumb">
+      <li><%= link_to "Home", root_path %></li>
+        </ol>
+
+
+    <% @category.each do |category| %>
+      <div class = "panel panel-default">
+        <div class = "panel-heading">
+          <h3 class = "panel-title">
+            <b><%= link_to category.name, category%></b>
+          </h3>
+        </div>
+
+        <div class = "panel-body">
+          <div class="col-md-8">
+            <%= category.description %>
+          </div>
+          <div class="col-md-4"><%=  pluralize(category.topics.count, "topic") %></div>
+        </div>
       </div>
-      <% end %>
+    <% end %>
+  </div>
 </div>

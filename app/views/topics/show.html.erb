@@ -1,2 +1,46 @@
-<h1>Topics#show</h1>
+<% provide(:title, @topic.title) %>
+<div class="container">
+
+  <div class="col-md-8">
+
+    <div class="breadcrumb">
+      <% if logged_in? %>
+          Create new topic at <%= link_to "here", new_topic_path%>
+      <% else %>
+          You need <%= link_to "Log in", login_path%> or <%= link_to "Sign up", signup_path%> to create a new topic!
+      <% end %>
+    </div>
+
+    <ol class = "breadcrumb">
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to @category.name, @category %></li>
+    </ol>
+
+    <div class = "panel panel-default">
+      <div class = "panel-heading">
+        <h3 class = "panel-title">
+          <b align = "center">[<%= link_to @category.name, @category %>] <%= @topic.title%></b>
+        </h3>
+        </div>
+
+      <div class = "panel-body">
+        <div class="col-md-3 center">
+          <%= image_tag(@info.avatar.url(:thumb)) %><br>
+          <%= link_to @user.name, @user %><br>
+          <%=  pluralize(@user.topics.count, "post") %>
+        </div>
+        <div class="col-md-9"><%= @topic.content %></div>
+      </div>
+
+      <div class = "panel-body">
+        <hr>
+        <div class="col-md-4">
+          adfsf
+        </div>
+        <div class="col-md-7"><i>Created at: <%= @topic.created_at %></i></div>
+        <div class="col-md-1"><i>#1</i></div>
+      </div>
+    </div>
+  </div>
+</div>
 

@@ -265,3 +265,9 @@ span.picture {
 //  -webkit-box-sizing: border-box;
 //  box-sizing:         border-box;
 //}
+
+.breadcrumb > li + li:before {
+  color: #CCCCCC;
+  content: "/ ";
+  padding: 0 5px;
+}
