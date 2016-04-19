@@ -27,7 +27,7 @@
         <div class="col-md-3 center">
           <%= image_tag(@info.avatar.url(:thumb)) %><br>
           <%= link_to @user.name, @user %><br>
-          <%=  pluralize(@user.topics.count, "post") %>
+          <%=  pluralize(@user.topics.count + @user.comments.count, "post") %>
         </div>
         <div class="col-md-9"><%= @topic.content %></div>
       </div>
@@ -35,10 +35,65 @@
       <div class = "panel-body">
         <hr>
         <div class="col-md-4">
-          adfsf
+          Nothing
         </div>
         <div class="col-md-7"><i>Created at: <%= @topic.created_at %></i></div>
         <div class="col-md-1"><i>#1</i></div>
+      </div>
+    </div>
+    <% count = 2 %>
+    <% @comment.each do |t| %>
+        <% user_comment = User.find_by_id(t.user_id) %>
+        <div class = "panel panel-default">
+          <div class = "panel-body">
+            <div class="col-md-3 center">
+              <%= image_tag(user_comment.information.avatar.url(:thumb)) %><br>
+              <%= link_to user_comment.name, user_comment %><br>
+              <%=  pluralize(user_comment.topics.count, "post") %>
+            </div>
+            <div class="col-md-9"><%= t.content %></div>
+          </div>
+          <div class = "panel-body">
+            <hr>
+            <div class="col-md-4">
+              Nothing
+            </div>
+            <div class="col-md-7"><i>Created at: <%= t.created_at %></i></div>
+            <div class="col-md-1"><i>#<%= count%></i></div>
+          </div>
+        </div>
+        <% count = count + 1 %>
+    <%end%>
+
+    <div class = "panel panel-default">
+      <div class = "panel-heading">
+        <h3 class = "panel-title">
+          <b>Add a comment</b>
+        </h3>
+      </div>
+
+      <div class = "panel-body">
+        <% if logged_in? %>
+            <div class="col-md-3 center">
+              <%= image_tag(@user_now.information.avatar.url(:thumb)) %><br>
+            </div>
+
+            <%= form_for @new_comment do |f| %>
+                <div class="col-md-7 center">
+                <%= f.text_area :content%>
+                 <%= f.radio_button :topic_id, @topic.id,checked: true%>
+
+                  </div>
+                  <div class="col-md-2">
+                <%= f.submit "Save", class: "btn btn-primary"%></div>
+                <% end %>
+            </div>
+        <% else %>
+            You need <%= link_to "Log in", login_path%> or <%= link_to "Sign up", signup_path%> to add a comment!
+        <% end %>
+
+
+
       </div>
     </div>
   </div>

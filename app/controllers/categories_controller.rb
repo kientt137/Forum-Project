@@ -2,10 +2,11 @@ class CategoriesController < ApplicationController
 
   def index
     @category = Category.all
+    @latest_topic = Topic.last(10).reverse
   end
   def show
     @category = Category.find(params[:id])
-    @topic = @category.topics.all
+    @topic = @category.topics.all.reverse
 
   end
   def new

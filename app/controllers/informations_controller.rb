@@ -23,21 +23,4 @@ class InformationsController < ApplicationController
   def info_params
     params.require(:information).permit(:sex, :birth, :address, :phone, :introduce, :avatar)
   end
-
-  #Check log in status
-  def logged_in_user
-    unless logged_in?
-      flash[:danger] = "Please log in."
-      redirect_to login_url
-    end
-  end
-
-  #Check correct_user
-  def correct_user
-    @user = User.find(params[:id])
-    unless current_user?(@user)
-      redirect_to(root_url)
-      flash[:danger] = "Access Denied"
-    end
-  end
 end
