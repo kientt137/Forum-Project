@@ -62,4 +62,22 @@ module SessionsHelper
       flash[:danger] = "Access Denied"
     end
   end
+
+  def correct_user_topic
+    @topic = Topic.find(params[:id])
+    @user = User.find_by_id(@topic.user_id)
+    unless current_user?(@user)
+      redirect_to(root_url)
+      flash[:danger] = "Access Denied"
+    end
+  end
+
+  def correct_user_comment
+    @comment = Comment.find(params[:id])
+    @user = User.find_by_id(@comment.user_id)
+    unless current_user?(@user)
+      redirect_to(root_url)
+      flash[:danger] = "Access Denied"
+    end
+  end
 end

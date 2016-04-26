@@ -1,13 +1,13 @@
 class TopicsController < ApplicationController
   before_action :logged_in_user, only: [:new, :create, :edit, :update]  #need log in to access this site
-  before_action :correct_user,   only: [:edit, :update]   #Can not change the data of other user
+  before_action :correct_user_topic,   only: [:edit, :update]   #Can not change the data of other user
 
   def index
     @category = Category.find(params[:id])
     @topic = @category.topics.all
   end
+
   def new
-    @category = Category.all
     @topic = Topic.new
   end
 
@@ -32,9 +32,17 @@ class TopicsController < ApplicationController
   end
 
   def edit
+    @topic = Topic.find(params[:id])
   end
 
   def update
+    @topic = Topic.find(params[:id])
+    if @topic.update_attributes(params_topic)
+      flash[:success] = "Update success"
+      redirect_to @topic
+    else
+      render 'edit'
+    end
   end
 
 

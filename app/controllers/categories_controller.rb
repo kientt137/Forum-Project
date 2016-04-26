@@ -15,10 +15,9 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      flash[:success] = "Cteate success"
+      flash[:success] = "Create new category success"
       redirect_to root_path
     else
-      flash[:error] = "Cteate failed"
       render "new"
     end
   end

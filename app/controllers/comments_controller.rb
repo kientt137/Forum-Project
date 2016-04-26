@@ -1,15 +1,24 @@
 class CommentsController < ApplicationController
   before_action :logged_in_user, only: [:new, :create, :edit, :update]  #need log in to access this site
-  before_action :correct_user,   only: [:edit, :update]   #Can not change the data of other user
+  before_action :correct_user_comment,   only: [:edit, :update]   #Can not change the data of other user
 
   def new
     @comment = Comment.new
   end
 
   def edit
+    @comment = Comment.find(params[:id])
   end
 
   def update
+    @comment = Comment.find(params[:id])
+    @topic = Topic.find_by_id(@comment.topic_id)
+    if @comment.update_attributes(params_comment)
+      flash[:success] = "Update success"
+      redirect_to @topic
+    else
+      render 'edit'
+    end
   end
 
   def create
@@ -18,7 +27,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to Topic.find_by_id(@comment.topic_id)
     else
-      render 'new'
+      render 'show'
     end
   end
   def show

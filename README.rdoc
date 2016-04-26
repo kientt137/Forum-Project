@@ -17,3 +17,5 @@ Install on C9.io
     - run: sudo apt-get install imagemagick
 5. Run server:
     rails server -b $IP -p $PORT
+	
+	abcxyz

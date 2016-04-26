@@ -35,7 +35,7 @@
       <div class = "panel-body">
         <hr>
         <div class="col-md-4">
-          Nothing
+          <%= link_to "Edit", edit_topic_path%>
         </div>
         <div class="col-md-7"><i>Created at: <%= @topic.created_at %></i></div>
         <div class="col-md-1"><i>#1</i></div>
@@ -49,14 +49,14 @@
             <div class="col-md-3 center">
               <%= image_tag(user_comment.information.avatar.url(:thumb)) %><br>
               <%= link_to user_comment.name, user_comment %><br>
-              <%=  pluralize(user_comment.topics.count, "post") %>
+              <%=  pluralize(user_comment.topics.count + user_comment.comments.count, "post") %>
             </div>
             <div class="col-md-9"><%= t.content %></div>
           </div>
           <div class = "panel-body">
             <hr>
             <div class="col-md-4">
-              Nothing
+              <%= link_to "edit", edit_comment_path(t)%>
             </div>
             <div class="col-md-7"><i>Created at: <%= t.created_at %></i></div>
             <div class="col-md-1"><i>#<%= count%></i></div>
@@ -79,6 +79,7 @@
             </div>
 
             <%= form_for @new_comment do |f| %>
+                <%= render 'shared/error_comment_messages' %>
                 <div class="col-md-7 center">
                 <%= f.text_area :content%>
                  <%= f.radio_button :topic_id, @topic.id,checked: true%>
