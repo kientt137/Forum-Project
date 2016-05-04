@@ -4,8 +4,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 gem 'bootstrap-sass',       '3.2.0.0'
-gem 'bcrypt-ruby', '~> 3.1.2', :require => "bcrypt"
-gem 'paperclip', '~> 4.1'
+gem 'bcrypt', '~> 3.1.2', :require => "bcrypt"
+gem 'paperclip', '~> 4.2.1'
 gem 'imagemagick-identify'
 gem 'country_select'
 gem 'friendly_id', '~> 5.1.0'
@@ -50,3 +50,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'rails_12factor', group: :production
