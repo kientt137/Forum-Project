@@ -4,7 +4,7 @@
     <data-source source="LOCAL" name="Rails Forum-Project: development" uuid="bc56ea7b-7e8d-4906-bdd7-b1ff21b95a48">
       <driver-ref>sqlite.xerial</driver-ref>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Ruby22-x64\Rubymine\Forum-Project\db\development.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Ruby22-x64\Rubymine\github\Forum-Project\db\development.sqlite3</jdbc-url>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails Forum-Project: test" uuid="668c0ea4-8e45-417c-916b-fd3daf9237da">

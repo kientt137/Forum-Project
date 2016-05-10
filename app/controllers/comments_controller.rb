@@ -22,17 +22,15 @@ class CommentsController < ApplicationController
   end
 
   def create
+
     @user = current_user
     @comment = @user.comments.new(params_comment)
     if @comment.save
       redirect_to Topic.find_by_id(@comment.topic_id)
     else
-      render 'show'
+      flash[:danger] = "Something wrong"
+      redirect_to Topic.find_by_id(@comment.topic_id)
     end
-  end
-  def show
-    @topic = Topic.find(params[:id])
-    @comment = @topic.comments.all
   end
 
   private

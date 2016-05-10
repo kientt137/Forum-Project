@@ -8,6 +8,7 @@ gem 'bcrypt', '~> 3.1.2', :require => "bcrypt"
 gem 'paperclip', '~> 4.2.1'
 gem 'imagemagick-identify'
 gem 'country_select'
+gem 'seed_dump'
 gem 'friendly_id', '~> 5.1.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
