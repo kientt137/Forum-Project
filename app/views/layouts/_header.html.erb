@@ -28,6 +28,8 @@
             <div class="round-image-50"><%= image_tag(@info.avatar.url(:thumb)) %></div>
         <% else %>
             <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+            <% if false %>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"> </span> Login</a>
               <ul class="dropdown-menu">
@@ -51,6 +53,7 @@
                       </div></div>
               </ul>
             </li>
+                <% end %>
         <% end %>
       </ul>
     </nav>
